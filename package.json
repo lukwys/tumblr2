@@ -4,6 +4,7 @@
   "private": true,
   "homepage": "https://lukwys.github.io/tumblr2/",
   "dependencies": {
+    "ajv": "^6.5.5",
     "react": "^16.5.2",
     "react-dom": "^16.5.2",
     "react-scripts": "2.0.5",
@@ -16,7 +17,8 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
-    "deploy": "node ./scripts/deploy.js"
+    "deploy": "node ./scripts/deploy.js",
+    "storybook": "start-storybook -p 9001 -c .storybook"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -28,6 +30,10 @@
     "not op_mini all"
   ],
   "devDependencies": {
+    "@storybook/addon-actions": "^4.0.4",
+    "@storybook/react": "^4.0.4",
+    "babel-core": "^6.26.3",
+    "babel-loader": "^8.0.4",
     "gh-pages": "^2.0.1"
   }
 }
