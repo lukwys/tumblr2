@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
+import React from 'react';
 import '../styles/notes.scss';
 
-class Notes extends Component {
+export default class Notes extends React.PureComponent {
     render() {
         return (
             <div className='notes'>
@@ -10,5 +10,3 @@ class Notes extends Component {
         );
     }
 }
-
-export default Notes;

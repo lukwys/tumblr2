@@ -10,7 +10,9 @@ storiesOf('Button', module)
     ))
     .add('with some emoji', () => (
         <Button onClick={action('clicked')}><span role="img" aria-label="so cool">😀 😎 👍 💯</span></Button>
-    ))
-    .add("Notes component", () => (
-        <Notes number="265"></Notes>
+    ));
+    
+storiesOf('Components', module)
+    .add("Notes", () => (
+        <Notes number="265" />
     ));
