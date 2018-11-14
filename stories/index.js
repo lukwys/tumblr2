@@ -2,8 +2,8 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import { Button } from '@storybook/react/demo';
-import Notes from '../src/components/Notes';
-import DateAndShare from '../src/components/DateAndShare';
+import { Notes } from '../src/components/Notes';
+import { DateAndShare } from '../src/components/DateAndShare';
 
 storiesOf('Button', module)
     .add('with text', () => (
@@ -18,5 +18,5 @@ storiesOf('Components', module)
         <Notes number="265" />
     ))
     .add('Date and Share', () => (
-        <DateAndShare date="11 November, 2018"/>
+        <DateAndShare date="2011-02-25 20:27:00 GMT"/>
     ));

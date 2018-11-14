@@ -1,7 +1,7 @@
 import React from 'react';
 import '../styles/notes.scss';
 
-export default class Notes extends React.PureComponent {
+export class Notes extends React.PureComponent {
     render() {
         return (
             <div className='notes'>
