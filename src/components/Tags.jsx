@@ -4,8 +4,8 @@ import '../styles/tags.scss';
 
 export class Tags extends React.PureComponent {
 
-    render() {
-         return this.props.tags ? 
+    get TagsList () {
+        return this.props.tags && this.props.tags.length ? 
          <div className='tags'>
             <ul className='tags__list'>
                 {this.props.tags.map(tag => (
@@ -14,6 +14,10 @@ export class Tags extends React.PureComponent {
             </ul>
         </div>
         : null;
+    }
+
+    render() {
+        return this.TagsList
     }
 }
 

@@ -7,7 +7,7 @@ export class Notes extends React.PureComponent {
         return typeof this.props.number === 'number';
     }
 
-    setNotesContent = () => {
+    get NotesContent () {
         if (this.isValidFormat()) {
             return <p className='notes__text'>{this.props.number} notes</p>;
         }
@@ -19,7 +19,7 @@ export class Notes extends React.PureComponent {
     render() {
         return (
             <div className='notes'>
-                {this.setNotesContent()}
+                {this.NotesContent}
             </div>
         )
     }
