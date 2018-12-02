@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import '../styles/dateAndShare.scss';
 
 export class DateAndShare extends React.PureComponent {
-    get PostDate () {
+    get postDate () {
         return format(this.props.date, 'DD MMMM YYYY');
     }
 
@@ -13,9 +13,9 @@ export class DateAndShare extends React.PureComponent {
         return isValid(this.props.data);
     }
 
-    get PostDateContent () {
+    get postDateContent () {
         if (DateAndShare.isValidFormat) {
-            return <p className='date-and-share__date'>{this.PostDate}</p>
+            return <p className='date-and-share__date'>{this.postDate}</p>
         }
         else {
             return <p className='date-and-share__date'>Invalid date</p>
@@ -25,7 +25,7 @@ export class DateAndShare extends React.PureComponent {
     render() {
         return (
             <div className='date-and-share'>
-                {this.PostDateContent}
+                {this.postDateContent}
                 <div className='date-and-share__share'>
                     <span className='date-and-share__icon date-and-share__icon--like'></span>
                     <span className='date-and-share__icon date-and-share__icon--reload'></span>
