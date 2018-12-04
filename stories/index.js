@@ -1,22 +1,36 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { action } from '@storybook/addon-actions';
-import { Button } from '@storybook/react/demo';
 import { Notes } from '../src/components/Notes';
 import { DateAndShare } from '../src/components/DateAndShare';
+import { Tags } from '../src/components/Tags';
 
-storiesOf('Button', module)
-    .add('with text', () => (
-        <Button onClick={action('clicked')}>Hello Button</Button>
-    ))
-    .add('with some emoji', () => (
-        <Button onClick={action('clicked')}><span role="img" aria-label="so cool">😀 😎 👍 💯</span></Button>
-    ));
-    
 storiesOf('Components', module)
-    .add("Notes", () => (
-        <Notes number="265" />
+    .add("Notes (correct)", () => (
+        <Notes number={265} />
     ))
-    .add('Date and Share', () => (
+    .add("Notes (wrong format)", () => (
+        <Notes number="test" />
+    ))
+    .add("Notes (empty)", () => (
+        <Notes number="" />
+    ))
+    .add('Date and Share (correct)', () => (
         <DateAndShare date="2011-02-25 20:27:00 GMT"/>
-    ));
+    ))
+    .add('Date and Share (wrong format)', () => (
+        <DateAndShare date="test"/>
+    ))
+    .add('Date and Share (empty)', () => (
+        <DateAndShare date=""/>
+    ))
+    .add('Tags (correct)', () => (
+        <Tags tags={["tumblrize",
+        "milky dog",
+        "mini comic"]}/>
+    ))
+    .add('Tags (empty)', () => (
+        <Tags />
+    ))
+    .add('Tags (wrong type)', () => (
+        <Tags tags={[1,2,3]}/>
+    ))
