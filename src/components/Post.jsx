@@ -1,18 +1,18 @@
 import React, { PureComponent } from 'react';
-import { PostPhoto, PostText, PostVideo } from './postRender';
-
-const PostRenderer = {
-    photo: PostPhoto,
-    text: PostText,
-    video: PostVideo,
-}
+import PropTypes from 'prop-types';
 
 export class Post extends PureComponent {
-    render() {
-        const Component = PostRenderer[this.props.post.posts.type];
 
+
+    render() {
         return (
-            Component ? <Component {...this.props.post.posts} /> : null
+            <div>
+                <h1>POST</h1>
+            </div>
         );
     }
 }
+
+Post.propTypes = {
+
+};
