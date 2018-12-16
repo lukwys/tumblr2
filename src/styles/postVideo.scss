@@ -1,0 +1,10 @@
+.video-post {
+    max-width: 1000px;
+    margin: 0 auto;
+    & object {
+        display: block;
+        width: 50%;
+        height: auto;
+        margin: 0 auto;
+    }
+}
