@@ -1,4 +1,4 @@
-export const responce = [
+export const response = [
     {
         posts: {
             blog_name: "citriccomics",

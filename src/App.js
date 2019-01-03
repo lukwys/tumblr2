@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
-import { BrowserRouter, Route, Link } from 'react-router-dom'
+import { BrowserRouter, Route, Link } from 'react-router-dom';
+import { Nav, NavItem, NavLink } from 'reactstrap';
 import { Home } from './components/Home';
 import { PostList } from './components/PostList';
 import { Post } from './components/Post';
 
+import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
 import './App.scss';
 
 class App extends Component {
@@ -19,14 +21,11 @@ class App extends Component {
               <li>
                 <Link to='/Posts'>Post list</Link>
               </li>
-              <li>
-                <Link to='/Post'>Post</Link>
-              </li>
             </ul>
           </nav>
           <Route exact path='/' component={Home} />
-          <Route path='/Posts' component={PostList} />
-          <Route path='/Post/:id' component={Post} />
+          <Route path='/posts' component={PostList} />
+          <Route path='/post/:id' component={Post} />
         </div>
       </BrowserRouter>
     );

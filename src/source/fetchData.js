@@ -3,6 +3,6 @@ export default function fetchData() {
 
     fetch(`https://api.tumblr.com/v2/blog/beakersblog.tumblr.com/posts/text?api_key=${API_KEY}`)
     .then(resp => {
-        console.log(resp);
+        // console.log(resp);
     })
 }
