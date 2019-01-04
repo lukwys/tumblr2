@@ -9,7 +9,7 @@ const PostRenderer = {
 
 export class PostType extends PureComponent {
     render() {
-        const Component = PostRenderer[this.props.posts.type];
+        const Component = PostRenderer[this.props.post.posts.type];
 
         return (
             Component ? <Component {...this.props.post.posts} /> : null
