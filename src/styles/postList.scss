@@ -1,0 +1,16 @@
+.post-list {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    list-style: none;
+    &__link {
+        width: 23%;
+        margin: 0 1%;
+        text-decoration: none;
+    }
+    &__item {
+        color: #000;
+    }
+}

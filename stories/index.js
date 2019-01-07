@@ -3,7 +3,7 @@ import { storiesOf } from '@storybook/react';
 import { Notes } from '../src/components/Notes';
 import { DateAndShare } from '../src/components/DateAndShare';
 import { Tags } from '../src/components/Tags';
-import { Post } from '../src/components/Post';
+import { PostType } from '../src/components/PostType';
 
 const responceText = {
     posts: {
@@ -161,11 +161,11 @@ storiesOf('Components', module)
         <Tags tags={[1, 2, 3]} />
     ))
     .add('Post (type text)', () => (
-        <Post post={responceText} />
+        <PostType post={responceText} />
     ))
     .add('Post (type image)', () => (
-        <Post post={responcePhoto} />
+        <PostType post={responcePhoto} />
     ))
     .add('Post (type video)', () => (
-        <Post post={responceVideo} />
+        <PostType post={responceVideo} />
     ))
