@@ -6,10 +6,12 @@
   "dependencies": {
     "bootstrap": "^4.2.1",
     "date-fns": "^1.29.0",
+    "mobx": "^5.8.0",
     "node-sass": "^4.10.0",
     "prop-types": "^15.6.2",
     "react": "^16.5.2",
     "react-dom": "^16.5.2",
+    "react-mobx": "^0.0.4",
     "react-router-dom": "^4.3.1",
     "react-scripts": "2.0.5",
     "reactstrap": "^6.5.0",
@@ -35,6 +37,7 @@
     "not op_mini all"
   ],
   "devDependencies": {
+    "@babel/plugin-proposal-decorators": "^7.2.3",
     "@storybook/addon-actions": "^4.0.4",
     "@storybook/react": "^4.0.4",
     "babel-core": "^6.26.3",

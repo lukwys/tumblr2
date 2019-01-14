@@ -5,31 +5,34 @@ import PropTypes from 'prop-types';
 import { DateAndShare } from './DateAndShare';
 import { Tags } from './Tags';
 import { postService } from '../services/post';
+import { Store } from '../Store';
+import { decorate, observable, action } from 'mobx';
+import {observer} from "mobx-react"
 
 import '../styles/post.scss'
 
-export class Post extends PureComponent {
-    constructor(props) {
-        super(props)
-        this.state = {}
-    }
+const postStore = new Store();
+
+decorate(Store, {
+    post: observable,
+    getPost: action,
+  });
+
+ 
+export @observer class Post extends PureComponent {
 
     componentDidMount() {
-        postService.findById(this.props.match.params.id).then(post => {
-            this.setState({
-                post: post,
-            })
-        });
+        postStore.getPost(this.props.match.params.id);
     }
 
     render() {
-        return this.state.post ?
+        return postStore.post ?
             (
                 <div>
-                    <PostType post={this.state.post} />
-                    <Notes number={this.state.post.posts.note_count} />
-                    <DateAndShare date={this.state.post.posts.date} />
-                    <Tags tags={this.state.post.posts.tags} />
+                    <PostType post={postStore.post} />
+                    <Notes number={postStore.post.posts.note_count} />
+                    <DateAndShare date={postStore.post.posts.date} />
+                    <Tags tags={postStore.post.posts.tags} />
                 </div>
             ) :
             (
