@@ -7,7 +7,7 @@ import { Tags } from './Tags';
 import { postService } from '../services/post';
 import { Store } from '../Store';
 import { decorate, observable, action } from 'mobx';
-import {observer} from "mobx-react"
+import { observer } from "mobx-react"
 
 import '../styles/post.scss'
 
@@ -18,8 +18,8 @@ decorate(Store, {
     getPost: action,
   });
 
- 
-export @observer class Post extends PureComponent {
+@observer
+export class Post extends PureComponent {
 
     componentDidMount() {
         postStore.getPost(this.props.match.params.id);
