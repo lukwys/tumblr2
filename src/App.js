@@ -5,7 +5,7 @@ import { Home } from './components/Home';
 import { PostList } from './components/PostList';
 import { Post } from './components/Post';
 
-import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
+// import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
 import './App.scss';
 
 class App extends Component {
