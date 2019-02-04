@@ -1,33 +1,22 @@
-import React, { PureComponent } from 'react';
+import React from 'react';
 import { PostType } from './PostType';
 import { Notes } from './Notes';
 import PropTypes from 'prop-types';
 import { DateAndShare } from './DateAndShare';
 import { Tags } from './Tags';
-import { postService } from '../services/post';
-import { Store } from '../Store';
-import { decorate, observable, action } from 'mobx';
-import { observer } from "mobx-react"
+import { observer, inject } from "mobx-react"
 
 import '../styles/post.scss'
 
-const postStore = new Store();
-
-decorate(Store, {
-    post: observable,
-    getPost: action,
-  });
-
-
-
-export @observer class Post extends React.Component {
+export const Post = inject("postStore")(observer(class Post extends React.Component {
 
     componentDidMount() {
-        postStore.getPost(this.props.match.params.id);
+        this.props.postStore.getPost(this.props.match.params.id);
     }
 
     render() {
-        return postStore.post ?
+        const { postStore } = this.props
+        return postStore.post.posts ?
             (
                 <div>
                     <PostType post={postStore.post} />
@@ -41,7 +30,7 @@ export @observer class Post extends React.Component {
             )
     }
 
-}
+}));
 
 Post.propTypes = {
     post: PropTypes.object
