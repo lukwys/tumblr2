@@ -1,28 +1,35 @@
-import React from 'react';
+import React, { PureComponent } from 'react';
 import { PostType } from './PostType';
 import { Notes } from './Notes';
 import PropTypes from 'prop-types';
 import { DateAndShare } from './DateAndShare';
 import { Tags } from './Tags';
-import { observer, inject } from "mobx-react"
+import { postService } from '../services/post';
 
 import '../styles/post.scss'
 
-export const Post = inject("postStore")(observer(class Post extends React.Component {
+export class Post extends PureComponent {
+    constructor(props) {
+        super(props)
+        this.state = {}
+    }
 
     componentDidMount() {
-        this.props.postStore.getPost(this.props.match.params.id);
+        postService.findById(this.props.match.params.id).then(post => {
+            this.setState({
+                post: post,
+            })
+        });
     }
 
     render() {
-        const { postStore } = this.props
-        return postStore.post.posts ?
+        return this.state.post ?
             (
                 <div>
-                    <PostType post={postStore.post} />
-                    <Notes number={postStore.post.posts.note_count} />
-                    <DateAndShare date={postStore.post.posts.date} />
-                    <Tags tags={postStore.post.posts.tags} />
+                    <PostType post={this.state.post} />
+                    <Notes number={this.state.post.posts.note_count} />
+                    <DateAndShare date={this.state.post.posts.date} />
+                    <Tags tags={this.state.post.posts.tags} />
                 </div>
             ) :
             (
@@ -30,7 +37,7 @@ export const Post = inject("postStore")(observer(class Post extends React.Compon
             )
     }
 
-}));
+}
 
 Post.propTypes = {
     post: PropTypes.object
